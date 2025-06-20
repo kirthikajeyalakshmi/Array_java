@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+class prac{
+
+    public static void reverse(int[] nums,int start,int end){
+
+        while(start<end){
+            int temp=nums[start];
+            nums[start]=nums[end];
+            nums[end]=temp;
+            start++;
+            end--;
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner in=new Scanner(System.in);
+        int size=in.nextInt();
+        int nums[]=new int[size];
+        int n=nums.length;
+
+        int k=in.nextInt();
+
+        //ip
+        for(int i=0;i<size;i++){
+            nums[i]=in.nextInt();
+        }
+        k=k%n;
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+        reverse(nums,0,n-1);
+
+        //op
+        for(int op:nums){
+            System.out.print(op + " ");
+        }
+    }
+}
