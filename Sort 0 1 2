@@ -1,0 +1,47 @@
+//DUTCH NATIONAL FLAG ALORITHM
+
+import java.util.Scanner;
+class ssma {
+    public static void main(String args[]) {
+        // code here
+
+        Scanner in=new Scanner(System.in);
+
+        System.out.println("Enter size=");
+        int size=in.nextInt();
+
+        int nums[]=new int[size];
+        int n=nums.length;
+        System.out.println("enter" + size + "elements=");
+
+        //ip
+        for(int i=0;i<size;i++){
+            nums[i]=in.nextInt();
+        }
+
+        int low=0,mid=0,high=n-1;
+
+        while(mid<=high){
+            if(nums[mid]==0){
+                int temp=nums[low];
+                nums[low]=nums[mid];
+                nums[mid]=temp;
+                low++;
+                mid++;
+            }else if(nums[mid]==2){
+                int temp1=nums[mid];
+                nums[mid]=nums[high];
+                nums[high]=temp1;
+                high--;
+            }else{
+                mid++;
+            }
+        }
+
+        //op
+        for(int i=0;i<n;i++){
+            System.out.print(nums[i] + " ");
+        }
+        
+    }
+}
