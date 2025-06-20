@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class ssma {
+    public static void main(String args[]) {
+        // code here
+
+        Scanner in=new Scanner(System.in);
+
+        System.out.println("Enter size=");
+        int size=in.nextInt();
+
+        int nums[]=new int[size];
+        int n=nums.length;
+        System.out.println("enter" + size + "elements=");
+
+        //ip
+        for(int i=0;i<size;i++){
+            nums[i]=in.nextInt();
+        }
+
+        int sum=0,maxs=nums[0];
+        for(int i=0;i<n;i++){
+            sum+=nums[i];
+            maxs=Math.max(sum,maxs);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        System.out.print(maxs);
+        
+    }
+}
