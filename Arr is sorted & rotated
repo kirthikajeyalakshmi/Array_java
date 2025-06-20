@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class ssma {
+    public static void main(String args[]) {
+        // code here
+
+        Scanner in=new Scanner(System.in);
+
+        System.out.println("Enter size=");
+        int size=in.nextInt();
+
+        int arr[]=new int[size];
+        int n=arr.length;
+        System.out.println("enter" + size + "elements=");
+
+        //ip
+        for(int i=0;i<size;i++){
+            arr[i]=in.nextInt();
+        }
+
+        int count=0;
+        for(int i=0;i<n-1;i++){
+
+            //sort
+            if(arr[i]>arr[i+1]){
+                count++;
+            }
+        }
+            //rotate
+            if(arr[n-1]>arr[0]){
+                count++;
+            }
+            if(count<=1){
+                System.out.print("True");
+            }else{
+                System.out.print("False");
+            }
+        
+    }
+}
