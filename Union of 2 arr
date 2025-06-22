@@ -1,0 +1,45 @@
+import java.util.*;
+
+class prac{
+
+    public static ArrayList<Integer> union(int nums1[],int nums2[]){
+
+         HashSet<Integer> st = new HashSet<>();
+        
+        for(int num:nums1){
+            st.add(num);
+        }
+        for(int num:nums2){
+            st.add(num);
+        }
+        ArrayList<Integer>ans = new ArrayList<>(st);
+        Collections.sort(ans);
+        return ans;
+
+    }
+    public static void main(String[] args) {
+
+       Scanner in = new Scanner(System.in);
+       
+       int size1=in.nextInt();
+        int size2=in.nextInt();
+
+        int nums1[]=new int[size1];        
+        int nums2[]=new int[size2];
+
+        //ip
+        for(int i=0;i<size1;i++){
+            nums1[i]=in.nextInt();
+        }
+        for(int i=0;i<size2;i++){
+            nums2[i]=in.nextInt();
+        }
+
+        ArrayList<Integer> ans = union(nums1,nums2);
+
+        for(int result :  ans){
+            System.out.print(result + " ");
+        }
+
+    }
+}
