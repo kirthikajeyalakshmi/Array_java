@@ -1,0 +1,48 @@
+import java.util.*;
+
+class ssma{
+
+    public static ArrayList<Integer> rep_mis(int arr[],int n){
+        HashMap<Integer,Integer> mp = new HashMap<>();
+        
+        int repeating = -1;
+        int missing = -1;
+        
+        //arr->mp
+        for(int num:arr){
+            mp.put(num,mp.getOrDefault(num,0)+1);
+        }
+        
+        for(int i=1;i<=n;i++){
+            if(!mp.containsKey(i)){
+                missing=i;
+            }else if(mp.get(i)>1){
+                repeating = i;
+            }
+        }
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(repeating);
+        ans.add(missing);
+        
+        return ans;
+
+    }
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+
+        int size=in.nextInt();
+        int arr[]=new int[size];
+        int n=arr.length;
+
+        //ip
+        for(int i=0;i<n;i++){
+            arr[i]=in.nextInt();
+        }
+
+        ArrayList <Integer> result = rep_mis(arr,n);
+
+        System.out.print("repeating = " + result.get(0));
+        System.out.print("missing = " + result.get(1));
+
+        }
+    }
