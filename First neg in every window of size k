@@ -1,0 +1,32 @@
+import java.util.*;
+class prac1{
+    public static void main(String args[]){
+
+        Scanner in = new Scanner(System.in);
+        int size=in.nextInt();
+        int arr[] = new int[size];
+        int n=arr.length;
+        int k=in.nextInt();
+
+        //ip
+        for(int i=0;i<n;i++){
+            arr[i]=in.nextInt();
+        }
+
+        ArrayList<Integer>ans = new ArrayList<>();
+        for(int i=0;i<=n-k;i++){
+            int firstneg = 0;
+            for(int j=i;j<i+k;j++){
+                if(arr[j]<0){
+                    firstneg=arr[j];
+                    break;
+                }
+            }
+            ans.add(firstneg);
+
+        }
+        for(int result : ans){
+            System.out.print(result + " ");
+        }
+    }
+}
