@@ -1,0 +1,50 @@
+import java.util.*;
+
+class ssma {
+    public static ArrayList<Integer> distinct(int arr[],int n,int k){
+        ArrayList<Integer>ans= new ArrayList<>();
+        HashMap<Integer,Integer>freq=new HashMap<>();
+
+        //1st window
+        for(int i=0;i<k;i++){
+            freq.put(arr[i],freq.getOrDefault(arr[i],0)+1);
+        }
+        ans.add(freq.size());
+
+        for(int i=k;i<n;i++){
+            int out=arr[i-k];
+            int count=freq.get(out); //out's current count
+            freq.put(out,count-1);    //reduce out's count by 1
+
+            if(freq.get(out)==0){
+                freq.remove(out);
+            }
+
+            //add new ele
+            freq.put(arr[i],freq.getOrDefault(arr[i],0)+1);
+            ans.add(freq.size());
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+       Scanner in = new Scanner(System.in);
+
+        int size = in.nextInt();
+        int arr[] = new int[size];
+        int n = arr.length;
+        int k = in.nextInt();
+
+        //ip
+        for(int i=0;i<n;i++){
+            arr[i]=in.nextInt();
+        }
+
+        ArrayList<Integer>result = distinct(arr,n,k);
+        //op
+        for(int num : result){
+            System.out.print(num);
+        }
+    }
+}
