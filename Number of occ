@@ -1,0 +1,27 @@
+import java.util.*;
+
+class prac1 {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        int size = in.nextInt();
+        int[] nums = new int[size];
+        int target = in.nextInt();
+        int n=nums.length;
+
+        //ip
+        for (int i = 0; i < size; i++) {
+            nums[i] = in.nextInt();
+        }
+
+        HashMap<Integer,Integer>mp = new HashMap<>();
+        for(int i=0;i<n;i++){
+            mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
+        }
+        if(mp.containsKey(target)){
+            System.out.print( mp.get(target));
+        }
+    }
+
+    }
