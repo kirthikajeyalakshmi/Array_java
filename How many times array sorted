@@ -1,0 +1,45 @@
+import java.util.*;
+
+class prac1 {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        int size = in.nextInt();
+        ArrayList<Integer>nums=new ArrayList<>();
+
+
+        //ip
+         for (int i = 0; i < size; i++) {
+            int num = in.nextInt(); // take input
+            nums.add(num);       // add to ArrayList
+        }
+
+
+        int n=nums.size();
+        int low=0;
+        int high=n-1;
+        int index=0;
+        int ans=Integer.MAX_VALUE;
+        
+        while(low<=high){
+            int mid=(low+high)/2;
+            //left sorted
+            if(nums.get(low)<=nums.get(mid)){
+                if(nums.get(low)<ans){
+                    ans=nums.get(low);
+                    index=low;
+                }
+                low=mid+1;
+            }else{  //right sorted
+            if(nums.get(mid)<ans){
+                ans=nums.get(mid);
+                index=mid;
+            }
+                high=mid-1;
+            }
+        }
+        System.out.print(index);
+    }
+
+    }
