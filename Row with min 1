@@ -1,0 +1,33 @@
+import java.util.*;
+class prac1{
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        int rows=in.nextInt();
+        int cols=in.nextInt();
+        int mat[][]=new int[rows][cols];
+        //ip
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                mat[i][j]=in.nextInt();
+            }
+        }
+
+        int minrow=0;
+        int mincount=Integer.MAX_VALUE;
+        for(int i=0;i<mat.length;i++){
+            int count=0;
+            for(int j=0;j<mat[0].length;j++){
+                if(mat[i][j]==1){
+                count++;
+                }
+            }
+            if(count<mincount){
+                mincount=count;
+                minrow=i;
+            }
+        }
+
+        System.out.print("min 1 count" + mincount);
+        System.out.print("min index" + minrow);
+    }
+}
