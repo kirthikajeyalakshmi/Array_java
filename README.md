@@ -1,6 +1,6 @@
 # 📌 Java Array Problems (Placement Preparation)
 
-This repository is **strictly for my personal placement preparation journey**.
+This repository is **for my personal placement preparation journey**.
 It contains array-based problems solved in Java, maintained in a simple and distraction-free manner.
 
 ---
